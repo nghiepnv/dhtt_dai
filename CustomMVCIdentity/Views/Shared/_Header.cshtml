@@ -1,0 +1,128 @@
+﻿@{
+    var b = new CustomMVCIdentity.Controllers.BaseController();
+    bool isMgr = b.CheckSupperAdmin();
+    Layout = null;
+}
+<style>
+    @@media only screen and (max-width: 1026px) {
+        .UserHeader {
+            display: none;
+        }
+    }
+
+    @@media only screen and (min-width: 600px) {
+        .UserHeader {
+            display: initial;
+        }
+    }
+</style>
+<header id="header_main">
+    <a href="/"><img src="~/image/ccv1.jpg" class="uk-float-left uk-h5" style="height:45.5px; margin-top:1px;" /></a>
+    <div class="header_main_content">
+        <nav class="uk-navbar">
+            <div class="uk-navbar-flip" id="top_account">
+                <ul class="uk-navbar-nav user_actions">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+                            <a href="#" class="user_action_image">
+                                <span class="UserHeader">@b.CurrentUser.UserName</span>
+                                <img style="width:37px;height:37px;" class="md-user-image" src="~/Content/img/avatars/blank-avatar2.jpg" />
+                            </a>
+                            <div class="uk-dropdown uk-dropdown-small">
+                                <ul class="uk-nav js-uk-prevent">
+                                    @if (isMgr)
+                                    {
+                                        <li><a class="btn" href="@Url.Action("Index", "Admin", new {area=""})" target="_blank"><span class="uk-padding-large" style=""><i class="material-icons">&#xE8EE;</i>&nbsp;Quản trị</span></a></li>
+                                    }                                    
+                                    <li><a class="btn" href="@Url.Action("ChangePassword","Login", new { area="" })"><span class="uk-padding-large"><i class="material-icons">&#xE863;</i>&nbsp;Đổi mật khẩu</span></a></li>
+                                    <li>
+                                        <a href="@Url.Action("Logout", "Login")" class="LogOff"><span class="uk-padding-large"><i class="material-icons">&#xE879;</i>&nbsp;Đăng xuất</span></a>
+                                        @Html.AntiForgeryToken()
+                                        <script>
+                                            $(function () {
+                                                $('.LogOff').click(function () {
+                                                    var token = $(':input:hidden[name*="RequestVerificationToken"]');
+                                                    var data = {};
+                                                    data[token.attr('name')] = token.val();
+                                                    $.ajax({
+                                                        url: this.href,
+                                                        type: 'GET',
+                                                        data: data,
+                                                        success: function (result) {
+                                                            window.location.href = "/";
+                                                        },
+                                                        error: function () {
+                                                        }
+                                                    });
+                                                    return false;
+                                                });
+                                            });
+                                        </script>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        @*
+                            <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+                                <a href="@Url.Action("Cart", "Product", new { area="" })" class="user_action_icon">
+                                    <i class="material-icons md-24 md-light">&#xE547;</i>
+                                    @if (giohang != null && giohang.Count > 0)
+                                    {
+                                        <span class="uk-badge md-bg-color-white">@giohang.Count</span>
+                                    }
+                                </a>
+                            </li>
+                        *@
+                        <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+                                <a href="javascript:void(0)" onclick="setSttNotice();" class="user_action_icon">
+                                    <i class="material-icons md-24">&#xE7F5;</i>
+                                    <span id="totalMessage" class="uk-badge" style="padding-left:50%;background-color:transparent;">3</span>
+                                </a>
+                                <div class="uk-dropdown uk-dropdown-xlarge">
+                                    <div class="md-card-content">
+                                        <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#header_alerts',animation:'slide-horizontal'}">
+                                            <li class="uk-width-1-1 uk-active"><a href="#" class="js-uk-prevent uk-text-small" id="ThongBao">Thông báo (4)</a></li>
+                                        </ul>
+                                        <ul id="header_alerts" class="uk-switcher uk-margin">
+                                            <li>
+                                                <ul class="md-list md-list-addon" id="Alert">
+                                                </ul>
+                                                <center><a href="#">Xem tất cả</a></center>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                    }
+                    else
+                    {
+                        <li class="uk-hidden-small"><a href="@Url.Action("Register","Account", new {area = "" })" class="user_action_icon">Đăng ký</a></li>
+                        <li class="uk-hidden-small"><a href="@Url.Action("Index","Login", new { area = "", returnUrl= Request.RawUrl})" id="" class="user_action_icon">Đăng nhập</a></li>
+                        <li data-uk-dropdown="justify:'#top_account'" class="uk-visible-small">
+                            <a style="padding-top:6px;"><i class="md-icon material-icons md-color-deep-purple-50">person</i></a>
+                            <div class="uk-dropdown">
+                                <div class="uk-grid uk-dropdown-grid" data-uk-grid-margin>
+                                    <div class="uk-width-1-1">
+                                        <ul class="uk-nav uk-nav-dropdown">
+                                            <li><a href="@Url.Action("Register","Account", new {area = "" })" class="user_action_icon">Đăng ký</a></li>
+                                            <li><a href="@Url.Action("Index","Login", new { area = "", returnUrl= Request.RawUrl})" id="" class="user_action_icon">Đăng nhập</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="header_main_search_form">
+        <i class="md-icon header_main_search_close material-icons">&#xE5CD;</i>
+        <form class="uk-form">
+            <input type="text" class="header_main_search_input" />
+            <button class="header_main_search_btn uk-button-link"><i class="md-icon material-icons">&#xE8B6;</i></button>
+        </form>
+    </div>
+</header><!-- main header end -->

@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09292A76-DAEC-46B1-8994-4F66D21C4B5C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomMVCIdentity</RootNamespace>
+    <AssemblyName>CustomMVCIdentity</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Alt\ckeditor_config.js" />
+    <Content Include="Content\Alt\codemirror\lib\codemirror.css" />
+    <Content Include="Content\Alt\codemirror\lib\codemirror.js" />
+    <Content Include="Content\Alt\countUp.js\angular-countUp.js" />
+    <Content Include="Content\Alt\countUp.js\countUp.js" />
+    <Content Include="Content\Alt\countUp.js\dist\angular-countUp.js" />
+    <Content Include="Content\Alt\countUp.js\dist\angular-countUp.min.js" />
+    <Content Include="Content\Alt\countUp.js\dist\countUp.js" />
+    <Content Include="Content\Alt\countUp.js\dist\countUp.min.js" />
+    <Content Include="Content\Alt\enjoyhint\enjoyhint.css" />
+    <Content Include="Content\Alt\enjoyhint\enjoyhint.js" />
+    <Content Include="Content\Alt\enjoyhint\enjoyhint.min.js" />
+    <Content Include="Content\Alt\enjoyhint\Gruntfile.js" />
+    <Content Include="Content\Alt\enjoyhint\src\Casino_Hand\casino_hand-webfont.svg" />
+    <Content Include="Content\Alt\enjoyhint\src\enjoyhint.js" />
+    <Content Include="Content\Alt\enjoyhint\src\jquery.enjoyhint.css" />
+    <Content Include="Content\Alt\enjoyhint\src\jquery.enjoyhint.js" />
+    <Content Include="Content\Alt\ion.rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="Content\Alt\ion.rangeslider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Content\Alt\ion.rangeslider\css\ion.rangeSlider.skinHTML5.css" />
+    <Content Include="Content\Alt\ion.rangeslider\css\ion.rangeSlider.skinModern.css" />
+    <Content Include="Content\Alt\ion.rangeslider\css\ion.rangeSlider.skinNice.css" />
+    <Content Include="Content\Alt\ion.rangeslider\css\ion.rangeSlider.skinSimple.css" />
+    <Content Include="Content\Alt\ion.rangeslider\css\normalize.css" />
+    <Content Include="Content\Alt\ion.rangeslider\img\sprite-skin-flat.png" />
+    <Content Include="Content\Alt\ion.rangeslider\img\sprite-skin-modern.png" />
+    <Content Include="Content\Alt\ion.rangeslider\img\sprite-skin-nice.png" />
+    <Content Include="Content\Alt\ion.rangeslider\img\sprite-skin-simple.png" />
+    <Content Include="Content\Alt\ion.rangeslider\js\ion.rangeSlider.js" />
+    <Content Include="Content\Alt\ion.rangeslider\js\ion.rangeSlider.min.js" />
+    <Content Include="Content\Alt\ion.rangeslider\_tmp\logo-ion-range-slider.png" />
+    <Content Include="Content\Alt\login_page.min.css" />
+    <Content Include="Content\Alt\main.min.css" />
+    <Content Include="Content\Alt\my_theme.min.css" />
+    <Content Include="Content\Alt\PagedList.css" />
+    <Content Include="Content\Alt\style_switcher.min.css" />
+    <Content Include="Content\Alt\templated-industrious\assets\css\font-awesome.min.css" />
+    <Content Include="Content\Alt\templated-industrious\assets\css\main.css" />
+    <Content Include="Content\Alt\templated-industrious\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Alt\templated-industrious\assets\js\breakpoints.min.js" />
+    <Content Include="Content\Alt\templated-industrious\assets\js\browser.min.js" />
+    <Content Include="Content\Alt\templated-industrious\assets\js\jquery.min.js" />
+    <Content Include="Content\Alt\templated-industrious\assets\js\main.js" />
+    <Content Include="Content\Alt\templated-industrious\assets\js\util.js" />
+    <Content Include="Content\Alt\templated-industrious\CREDITS.txt" />
+    <Content Include="Content\Alt\templated-industrious\images\banner.jpg" />
+    <Content Include="Content\Alt\templated-industrious\images\banner.mp4" />
+    <Content Include="Content\Alt\templated-industrious\images\bg.jpg" />
+    <Content Include="Content\Alt\templated-industrious\images\cta01.jpg" />
+    <Content Include="Content\Alt\templated-industrious\images\pic01.jpg" />
+    <Content Include="Content\Alt\templated-industrious\images\pic02.jpg" />
+    <Content Include="Content\Alt\templated-industrious\images\pic03.jpg" />
+    <Content Include="Content\Alt\templated-industrious\images\_banner.mp4" />
+    <Content Include="Content\Alt\themes_combined.min.css" />
+    <Content Include="Content\Alt\tinymce\jquery.tinymce.js" />
+    <Content Include="Content\Alt\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Content\Alt\tinymce\license.txt" />
+    <Content Include="Content\Alt\tinymce\material_design\content.inline.min.css" />
+    <Content Include="Content\Alt\tinymce\material_design\content.min.css" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce-small.svg" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce.svg" />
+    <Content Include="Content\Alt\tinymce\material_design\img\anchor.gif" />
+    <Content Include="Content\Alt\tinymce\material_design\img\loader.gif" />
+    <Content Include="Content\Alt\tinymce\material_design\img\object.gif" />
+    <Content Include="Content\Alt\tinymce\material_design\img\trans.gif" />
+    <Content Include="Content\Alt\tinymce\material_design\img\wline.gif" />
+    <Content Include="Content\Alt\tinymce\material_design\skin.ie7.min.css" />
+    <Content Include="Content\Alt\tinymce\material_design\skin.min.css" />
+    <Content Include="Content\Alt\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="Content\Alt\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\code\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\hr\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\imagetools\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\image\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\layer\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\link\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\lists\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Content\Alt\tinymce\plugins\media\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\paste\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\preview\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\print\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\save\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\table\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\template\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Content\Alt\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="Content\Alt\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Content\Alt\tinymce\themes\inlite\theme.js" />
+    <Content Include="Content\Alt\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="Content\Alt\tinymce\themes\modern\theme.js" />
+    <Content Include="Content\Alt\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Content\Alt\tinymce\tinymce.jquery.js" />
+    <Content Include="Content\Alt\tinymce\tinymce.jquery.min.js" />
+    <Content Include="Content\Alt\tinymce\tinymce.js" />
+    <Content Include="Content\Alt\tinymce\tinymce.min.js" />
+    <Content Include="Content\Alt\uikit.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\accordion.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\accordion.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\accordion.css" />
+    <Content Include="Content\Alt\uikit\css\components\accordion.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\accordion.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\accordion.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\autocomplete.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\autocomplete.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\autocomplete.css" />
+    <Content Include="Content\Alt\uikit\css\components\autocomplete.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\autocomplete.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\autocomplete.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\datepicker.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\datepicker.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\datepicker.css" />
+    <Content Include="Content\Alt\uikit\css\components\datepicker.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\datepicker.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\datepicker.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\dotnav.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\dotnav.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\dotnav.css" />
+    <Content Include="Content\Alt\uikit\css\components\dotnav.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\dotnav.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\dotnav.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-advanced.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-advanced.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-advanced.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-advanced.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-advanced.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-advanced.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-file.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-file.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-file.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-file.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-file.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-file.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-password.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-password.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-password.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-password.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-password.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-password.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-select.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-select.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-select.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-select.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-select.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\form-select.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\htmleditor.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\htmleditor.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\htmleditor.css" />
+    <Content Include="Content\Alt\uikit\css\components\htmleditor.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\htmleditor.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\htmleditor.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\nestable.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\nestable.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\nestable.css" />
+    <Content Include="Content\Alt\uikit\css\components\nestable.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\nestable.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\nestable.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\notify.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\notify.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\notify.css" />
+    <Content Include="Content\Alt\uikit\css\components\notify.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\notify.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\notify.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\placeholder.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\placeholder.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\placeholder.css" />
+    <Content Include="Content\Alt\uikit\css\components\placeholder.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\placeholder.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\placeholder.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\progress.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\progress.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\progress.css" />
+    <Content Include="Content\Alt\uikit\css\components\progress.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\progress.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\progress.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\search.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\search.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\search.css" />
+    <Content Include="Content\Alt\uikit\css\components\search.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\search.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\search.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slidenav.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\slidenav.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slidenav.css" />
+    <Content Include="Content\Alt\uikit\css\components\slidenav.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\slidenav.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slidenav.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slider.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\slider.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slider.css" />
+    <Content Include="Content\Alt\uikit\css\components\slider.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\slider.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slider.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slideshow.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\slideshow.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slideshow.css" />
+    <Content Include="Content\Alt\uikit\css\components\slideshow.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\slideshow.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\slideshow.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\sortable.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\sortable.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\sortable.css" />
+    <Content Include="Content\Alt\uikit\css\components\sortable.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\sortable.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\sortable.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\sticky.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\sticky.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\sticky.css" />
+    <Content Include="Content\Alt\uikit\css\components\sticky.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\sticky.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\sticky.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\tooltip.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\tooltip.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\tooltip.css" />
+    <Content Include="Content\Alt\uikit\css\components\tooltip.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\tooltip.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\tooltip.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\upload.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\components\upload.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\upload.css" />
+    <Content Include="Content\Alt\uikit\css\components\upload.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\components\upload.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\components\upload.min.css" />
+    <Content Include="Content\Alt\uikit\css\uikit.almost-flat.css" />
+    <Content Include="Content\Alt\uikit\css\uikit.almost-flat.min.css" />
+    <Content Include="Content\Alt\uikit\css\uikit.css" />
+    <Content Include="Content\Alt\uikit\css\uikit.gradient.css" />
+    <Content Include="Content\Alt\uikit\css\uikit.gradient.min.css" />
+    <Content Include="Content\Alt\uikit\css\uikit.min.css" />
+    <Content Include="Content\Alt\uikit\js\components\accordion.js" />
+    <Content Include="Content\Alt\uikit\js\components\accordion.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\autocomplete.js" />
+    <Content Include="Content\Alt\uikit\js\components\autocomplete.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\datepicker.js" />
+    <Content Include="Content\Alt\uikit\js\components\datepicker.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\form-password.js" />
+    <Content Include="Content\Alt\uikit\js\components\form-password.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\form-select.js" />
+    <Content Include="Content\Alt\uikit\js\components\form-select.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\grid-parallax.js" />
+    <Content Include="Content\Alt\uikit\js\components\grid-parallax.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\grid.js" />
+    <Content Include="Content\Alt\uikit\js\components\grid.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\htmleditor.js" />
+    <Content Include="Content\Alt\uikit\js\components\htmleditor.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\lightbox.js" />
+    <Content Include="Content\Alt\uikit\js\components\lightbox.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\nestable.js" />
+    <Content Include="Content\Alt\uikit\js\components\nestable.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\notify.js" />
+    <Content Include="Content\Alt\uikit\js\components\notify.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\pagination.js" />
+    <Content Include="Content\Alt\uikit\js\components\pagination.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\parallax.js" />
+    <Content Include="Content\Alt\uikit\js\components\parallax.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\search.js" />
+    <Content Include="Content\Alt\uikit\js\components\search.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\slider.js" />
+    <Content Include="Content\Alt\uikit\js\components\slider.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\slideset.js" />
+    <Content Include="Content\Alt\uikit\js\components\slideset.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\slideshow-fx.js" />
+    <Content Include="Content\Alt\uikit\js\components\slideshow-fx.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\slideshow.js" />
+    <Content Include="Content\Alt\uikit\js\components\slideshow.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\sortable.js" />
+    <Content Include="Content\Alt\uikit\js\components\sortable.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\sticky.js" />
+    <Content Include="Content\Alt\uikit\js\components\sticky.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\timepicker.js" />
+    <Content Include="Content\Alt\uikit\js\components\timepicker.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\tooltip.js" />
+    <Content Include="Content\Alt\uikit\js\components\tooltip.min.js" />
+    <Content Include="Content\Alt\uikit\js\components\upload.js" />
+    <Content Include="Content\Alt\uikit\js\components\upload.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\alert.js" />
+    <Content Include="Content\Alt\uikit\js\core\alert.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\button.js" />
+    <Content Include="Content\Alt\uikit\js\core\button.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\core.js" />
+    <Content Include="Content\Alt\uikit\js\core\core.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\cover.js" />
+    <Content Include="Content\Alt\uikit\js\core\cover.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\dropdown.js" />
+    <Content Include="Content\Alt\uikit\js\core\dropdown.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\grid.js" />
+    <Content Include="Content\Alt\uikit\js\core\grid.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\modal.js" />
+    <Content Include="Content\Alt\uikit\js\core\modal.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\nav.js" />
+    <Content Include="Content\Alt\uikit\js\core\nav.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\offcanvas.js" />
+    <Content Include="Content\Alt\uikit\js\core\offcanvas.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\scrollspy.js" />
+    <Content Include="Content\Alt\uikit\js\core\scrollspy.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\smooth-scroll.js" />
+    <Content Include="Content\Alt\uikit\js\core\smooth-scroll.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\switcher.js" />
+    <Content Include="Content\Alt\uikit\js\core\switcher.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\tab.js" />
+    <Content Include="Content\Alt\uikit\js\core\tab.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\toggle.js" />
+    <Content Include="Content\Alt\uikit\js\core\toggle.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\touch.js" />
+    <Content Include="Content\Alt\uikit\js\core\touch.min.js" />
+    <Content Include="Content\Alt\uikit\js\core\utility.js" />
+    <Content Include="Content\Alt\uikit\js\core\utility.min.js" />
+    <Content Include="Content\Alt\uikit\js\uikit.js" />
+    <Content Include="Content\Alt\uikit\js\uikit.min.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\icons\flags\flags%402x.png" />
+    <Content Include="Content\icons\flags\flags.css" />
+    <Content Include="Content\icons\flags\flags.min.css" />
+    <Content Include="Content\icons\flags\flags.png" />
+    <Content Include="Content\icons\flags\Hello.txt" />
+    <Content Include="Content\icons\flags\LICENSE.txt" />
+    <Content Include="Content\icons\material-design-icons\material-icons.css" />
+    <Content Include="Content\icons\material-design-icons\MaterialIcons-Regular.svg" />
+    <Content Include="Content\icons\others\envato_ico.png" />
+    <Content Include="Content\icons\others\ic_attachment_black_18px.svg" />
+    <Content Include="Content\icons\others\ic_audiotrack_black_18px.svg" />
+    <Content Include="Content\icons\others\ic_bug_report_black_18px.svg" />
+    <Content Include="Content\icons\others\ic_code_black_18px.svg" />
+    <Content Include="Content\icons\others\ic_file_download_black_18px.svg" />
+    <Content Include="Content\icons\others\ic_insert_emoticon_black_18px.svg" />
+    <Content Include="Content\icons\others\ic_wallpaper_black_18px.svg" />
+    <Content Include="Content\img\avatars\avatar_01%402x.png" />
+    <Content Include="Content\img\avatars\avatar_01.png" />
+    <Content Include="Content\img\avatars\avatar_01_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_01_tn.png" />
+    <Content Include="Content\img\avatars\avatar_02%402x.png" />
+    <Content Include="Content\img\avatars\avatar_02.png" />
+    <Content Include="Content\img\avatars\avatar_02_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_02_tn.png" />
+    <Content Include="Content\img\avatars\avatar_03%402x.png" />
+    <Content Include="Content\img\avatars\avatar_03.png" />
+    <Content Include="Content\img\avatars\avatar_03_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_03_tn.png" />
+    <Content Include="Content\img\avatars\avatar_04%402x.png" />
+    <Content Include="Content\img\avatars\avatar_04.png" />
+    <Content Include="Content\img\avatars\avatar_04_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_04_tn.png" />
+    <Content Include="Content\img\avatars\avatar_05%402x.png" />
+    <Content Include="Content\img\avatars\avatar_05.png" />
+    <Content Include="Content\img\avatars\avatar_05_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_05_tn.png" />
+    <Content Include="Content\img\avatars\avatar_06%402x.png" />
+    <Content Include="Content\img\avatars\avatar_06.png" />
+    <Content Include="Content\img\avatars\avatar_06_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_06_tn.png" />
+    <Content Include="Content\img\avatars\avatar_07%402x.png" />
+    <Content Include="Content\img\avatars\avatar_07.png" />
+    <Content Include="Content\img\avatars\avatar_07_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_07_tn.png" />
+    <Content Include="Content\img\avatars\avatar_08%402x.png" />
+    <Content Include="Content\img\avatars\avatar_08.png" />
+    <Content Include="Content\img\avatars\avatar_08_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_08_tn.png" />
+    <Content Include="Content\img\avatars\avatar_09%402x.png" />
+    <Content Include="Content\img\avatars\avatar_09.png" />
+    <Content Include="Content\img\avatars\avatar_09_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_09_tn.png" />
+    <Content Include="Content\img\avatars\avatar_10%402x.png" />
+    <Content Include="Content\img\avatars\avatar_10.png" />
+    <Content Include="Content\img\avatars\avatar_10_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_10_tn.png" />
+    <Content Include="Content\img\avatars\avatar_11%402x.png" />
+    <Content Include="Content\img\avatars\avatar_11.png" />
+    <Content Include="Content\img\avatars\avatar_11_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_11_tn%404x.png" />
+    <Content Include="Content\img\avatars\avatar_11_tn.png" />
+    <Content Include="Content\img\avatars\avatar_12%402x.png" />
+    <Content Include="Content\img\avatars\avatar_12.png" />
+    <Content Include="Content\img\avatars\avatar_12_tn%402x.png" />
+    <Content Include="Content\img\avatars\avatar_12_tn.png" />
+    <Content Include="Content\img\avatars\blank-avatar2.jpg" />
+    <Content Include="Content\img\avatars\user%402x.png" />
+    <Content Include="Content\img\avatars\user-alt%402x.png" />
+    <Content Include="Content\img\avatars\user-alt.png" />
+    <Content Include="Content\img\avatars\user.png" />
+    <Content Include="Content\img\blank.png" />
+    <Content Include="Content\img\ecommerce\s6_edge%402x.jpg" />
+    <Content Include="Content\img\ecommerce\s6_edge.jpg" />
+    <Content Include="Content\img\ecommerce\s6_edge_1%402x.jpg" />
+    <Content Include="Content\img\ecommerce\s6_edge_1.jpg" />
+    <Content Include="Content\img\ecommerce\s6_edge_2%402x.jpg" />
+    <Content Include="Content\img\ecommerce\s6_edge_2.jpg" />
+    <Content Include="Content\img\ecommerce\s6_edge_3%402x.jpg" />
+    <Content Include="Content\img\ecommerce\s6_edge_3.jpg" />
+    <Content Include="Content\img\favicon-16x16.png" />
+    <Content Include="Content\img\favicon-32x32.png" />
+    <Content Include="Content\img\gallery\Image01%402x.jpg" />
+    <Content Include="Content\img\gallery\Image01.jpg" />
+    <Content Include="Content\img\gallery\Image02%402x.jpg" />
+    <Content Include="Content\img\gallery\Image02.jpg" />
+    <Content Include="Content\img\gallery\Image03%402x.jpg" />
+    <Content Include="Content\img\gallery\Image03.jpg" />
+    <Content Include="Content\img\gallery\Image04%402x.jpg" />
+    <Content Include="Content\img\gallery\Image04.jpg" />
+    <Content Include="Content\img\gallery\Image05%402x.jpg" />
+    <Content Include="Content\img\gallery\Image05.jpg" />
+    <Content Include="Content\img\gallery\Image06%402x.jpg" />
+    <Content Include="Content\img\gallery\Image06.jpg" />
+    <Content Include="Content\img\gallery\Image07%402x.jpg" />
+    <Content Include="Content\img\gallery\Image07.jpg" />
+    <Content Include="Content\img\gallery\Image08%402x.jpg" />
+    <Content Include="Content\img\gallery\Image08.jpg" />
+    <Content Include="Content\img\gallery\Image09%402x.jpg" />
+    <Content Include="Content\img\gallery\Image09.jpg" />
+    <Content Include="Content\img\gallery\Image10%402x.jpg" />
+    <Content Include="Content\img\gallery\Image10.jpg" />
+    <Content Include="Content\img\gallery\Image11%402x.jpg" />
+    <Content Include="Content\img\gallery\Image11.jpg" />
+    <Content Include="Content\img\gallery\Image12%402x.jpg" />
+    <Content Include="Content\img\gallery\Image12.jpg" />
+    <Content Include="Content\img\gallery\Image13%402x.jpg" />
+    <Content Include="Content\img\gallery\Image13.jpg" />
+    <Content Include="Content\img\gallery\Image14%402x.jpg" />
+    <Content Include="Content\img\gallery\Image14.jpg" />
+    <Content Include="Content\img\gallery\Image15%402x.jpg" />
+    <Content Include="Content\img\gallery\Image15.jpg" />
+    <Content Include="Content\img\gallery\Image16%402x.jpg" />
+    <Content Include="Content\img\gallery\Image16.jpg" />
+    <Content Include="Content\img\gallery\Image17%402x.jpg" />
+    <Content Include="Content\img\gallery\Image17.jpg" />
+    <Content Include="Content\img\gallery\Image18%402x.jpg" />
+    <Content Include="Content\img\gallery\Image18.jpg" />
+    <Content Include="Content\img\gallery\Image19%402x.jpg" />
+    <Content Include="Content\img\gallery\Image19.jpg" />
+    <Content Include="Content\img\gallery\Image20%402x.jpg" />
+    <Content Include="Content\img\gallery\Image20.jpg" />
+    <Content Include="Content\img\gallery\Image21%402x.jpg" />
+    <Content Include="Content\img\gallery\Image21.jpg" />
+    <Content Include="Content\img\gallery\Image22%402x.jpg" />
+    <Content Include="Content\img\gallery\Image22.jpg" />
+    <Content Include="Content\img\gallery\Image23%402x.jpg" />
+    <Content Include="Content\img\gallery\Image23.jpg" />
+    <Content Include="Content\img\gallery\Image24%402x.jpg" />
+    <Content Include="Content\img\gallery\Image24.jpg" />
+    <Content Include="Content\img\gallery\image_cropp.jpg" />
+    <Content Include="Content\img\guide\guide1.png" />
+    <Content Include="Content\img\guide\guide2.png" />
+    <Content Include="Content\img\guide\guide3.png" />
+    <Content Include="Content\img\guide\guide4.png" />
+    <Content Include="Content\img\logo_light.png" />
+    <Content Include="Content\img\logo_main%402x.png" />
+    <Content Include="Content\img\logo_main.png" />
+    <Content Include="Content\img\logo_main_small%402x.png" />
+    <Content Include="Content\img\logo_main_small.png" />
+    <Content Include="Content\img\logo_main_small_light%402x.png" />
+    <Content Include="Content\img\logo_main_small_light.png" />
+    <Content Include="Content\img\logo_main_white%402x.png" />
+    <Content Include="Content\img\logo_main_white.png" />
+    <Content Include="Content\img\md-images\ic_beenhere_black_24dp.png" />
+    <Content Include="Content\img\md-images\ic_beenhere_black_48dp.png" />
+    <Content Include="Content\img\md-images\ic_beenhere_blue_24dp.png" />
+    <Content Include="Content\img\md-images\ic_beenhere_blue_48dp.png" />
+    <Content Include="Content\img\md-images\ic_beenhere_red_24dp.png" />
+    <Content Include="Content\img\md-images\ic_beenhere_red_48dp.png" />
+    <Content Include="Content\img\md-images\ic_local_dining_black_24dp.png" />
+    <Content Include="Content\img\md-images\ic_local_dining_black_48dp.png" />
+    <Content Include="Content\img\md-images\ic_local_dining_blue_24dp.png" />
+    <Content Include="Content\img\md-images\ic_local_dining_blue_48dp.png" />
+    <Content Include="Content\img\md-images\ic_local_dining_red_24dp.png" />
+    <Content Include="Content\img\md-images\ic_local_dining_red_48dp.png" />
+    <Content Include="Content\img\md-images\ic_location_history_black_24dp.png" />
+    <Content Include="Content\img\md-images\ic_location_history_black_48dp.png" />
+    <Content Include="Content\img\md-images\ic_location_history_blue_24dp.png" />
+    <Content Include="Content\img\md-images\ic_location_history_blue_48dp.png" />
+    <Content Include="Content\img\md-images\ic_location_history_red_24dp.png" />
+    <Content Include="Content\img\md-images\ic_location_history_red_48dp.png" />
+    <Content Include="Content\img\md-images\ic_place_black%402x.png" />
+    <Content Include="Content\img\md-images\ic_place_black.png" />
+    <Content Include="Content\img\md-images\ic_place_black_24dp.png" />
+    <Content Include="Content\img\md-images\ic_place_black_48dp.png" />
+    <Content Include="Content\img\md-images\ic_place_blue_24dp.png" />
+    <Content Include="Content\img\md-images\ic_place_blue_48dp.png" />
+    <Content Include="Content\img\md-images\ic_place_red_24dp.png" />
+    <Content Include="Content\img\md-images\ic_place_red_48dp.png" />
+    <Content Include="Content\img\others\envato_ico.png" />
+    <Content Include="Content\img\others\html5-css-javascript-logos.png" />
+    <Content Include="Content\img\sidebar_head_bg%402x.png" />
+    <Content Include="Content\img\sidebar_head_bg.png" />
+    <Content Include="Content\img\sidebar_head_bg_dark%402x.png" />
+    <Content Include="Content\img\sidebar_head_bg_dark.png" />
+    <Content Include="Content\img\spinners\spinner%402x.gif" />
+    <Content Include="Content\img\spinners\spinner.gif" />
+    <Content Include="Content\img\spinners\spinner_danger%402x.gif" />
+    <Content Include="Content\img\spinners\spinner_danger.gif" />
+    <Content Include="Content\img\spinners\spinner_large%402x.gif" />
+    <Content Include="Content\img\spinners\spinner_large.gif" />
+    <Content Include="Content\img\spinners\spinner_medium%402x.gif" />
+    <Content Include="Content\img\spinners\spinner_medium.gif" />
+    <Content Include="Content\img\spinners\spinner_small%402x.gif" />
+    <Content Include="Content\img\spinners\spinner_small.gif" />
+    <Content Include="Content\img\spinners\spinner_success%402x.gif" />
+    <Content Include="Content\img\spinners\spinner_success.gif" />
+    <Content Include="Content\img\spinners\spinner_warning%402x.gif" />
+    <Content Include="Content\img\spinners\spinner_warning.gif" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\Alt\altair_admin_common.min.js" />
+    <Content Include="Scripts\Alt\common.min.js" />
+    <Content Include="Scripts\Alt\Encoder.js" />
+    <Content Include="Scripts\Alt\forms_wysiwyg.min.js" />
+    <Content Include="Scripts\Alt\inputCount.js" />
+    <Content Include="Scripts\Alt\jquery-3.2.1.js" />
+    <Content Include="Scripts\Alt\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\Alt\jquery-ui.min.js" />
+    <Content Include="Scripts\Alt\jquery.shorten.js" />
+    <Content Include="Scripts\Alt\login.min.js" />
+    <Content Include="Scripts\Alt\Pagination.js" />
+    <Content Include="Scripts\Alt\plugins_tour.js" />
+    <Content Include="Scripts\Alt\push.min.js" />
+    <Content Include="Scripts\Alt\showmessage.js" />
+    <Content Include="Scripts\Alt\uikit_custom.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Alt\countUp.js\bower.json" />
+    <Content Include="Content\Alt\countUp.js\package.json" />
+    <Content Include="Content\Alt\enjoyhint\bower.json" />
+    <Content Include="Content\Alt\enjoyhint\package.json" />
+    <Content Include="Content\Alt\enjoyhint\README.md" />
+    <Content Include="Content\Alt\enjoyhint\src\Casino_Hand\casino_hand-webfont.eot" />
+    <Content Include="Content\Alt\enjoyhint\src\Casino_Hand\casino_hand-webfont.ttf" />
+    <Content Include="Content\Alt\enjoyhint\src\Casino_Hand\casino_hand-webfont.woff" />
+    <Content Include="Content\Alt\ion.rangeslider\bower.json" />
+    <Content Include="Content\Alt\ion.rangeslider\history.md" />
+    <Content Include="Content\Alt\ion.rangeslider\index.md" />
+    <Content Include="Content\Alt\ion.rangeslider\package.json" />
+    <Content Include="Content\Alt\ion.rangeslider\readme.md" />
+    <Content Include="Content\Alt\ion.rangeslider\readme.ru.md" />
+    <Content Include="Content\Alt\templated-industrious.rar" />
+    <Content Include="Content\Alt\templated-industrious\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Alt\templated-industrious\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Alt\templated-industrious\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Alt\templated-industrious\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Alt\templated-industrious\assets\fonts\FontAwesome.otf" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\base\_page.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\base\_reset.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\base\_typography.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_actions.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_box.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_button.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_form.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_grid.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_highlights.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_icon.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_icons.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_image.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_inner.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_list.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_table.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_testimonials.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\components\_wrapper.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\layout\_banner.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\layout\_cta.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\layout\_footer.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\layout\_header.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\layout\_heading.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\layout\_main.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\layout\_menu.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\libs\_breakpoints.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\libs\_flexgrid.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\libs\_functions.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\libs\_grid.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\libs\_mixins.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\libs\_vars.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\libs\_vendor.scss" />
+    <Content Include="Content\Alt\templated-industrious\assets\sass\main.scss" />
+    <Content Include="Content\Alt\tinymce\bower.json" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce-small.eot" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce-small.ttf" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce-small.woff" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce.eot" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce.ttf" />
+    <Content Include="Content\Alt\tinymce\material_design\fonts\tinymce.woff" />
+    <Content Include="Content\Alt\tinymce\material_design\skin.json" />
+    <Content Include="Content\Alt\tinymce\material_design\Variables.less" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Content\Alt\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Content\Alt\uikit\bower.json" />
+    <Content Include="Content\Alt\uikit\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Alt\uikit\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Alt\uikit\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Alt\uikit\fonts\FontAwesome.otf" />
+    <Content Include="Content\Alt\uikit\less\components\accordion.less" />
+    <Content Include="Content\Alt\uikit\less\components\autocomplete.less" />
+    <Content Include="Content\Alt\uikit\less\components\datepicker.less" />
+    <Content Include="Content\Alt\uikit\less\components\dotnav.less" />
+    <Content Include="Content\Alt\uikit\less\components\form-advanced.less" />
+    <Content Include="Content\Alt\uikit\less\components\form-file.less" />
+    <Content Include="Content\Alt\uikit\less\components\form-password.less" />
+    <Content Include="Content\Alt\uikit\less\components\form-select.less" />
+    <Content Include="Content\Alt\uikit\less\components\htmleditor.less" />
+    <Content Include="Content\Alt\uikit\less\components\nestable.less" />
+    <Content Include="Content\Alt\uikit\less\components\notify.less" />
+    <Content Include="Content\Alt\uikit\less\components\placeholder.less" />
+    <Content Include="Content\Alt\uikit\less\components\progress.less" />
+    <Content Include="Content\Alt\uikit\less\components\search.less" />
+    <Content Include="Content\Alt\uikit\less\components\slidenav.less" />
+    <Content Include="Content\Alt\uikit\less\components\slider.less" />
+    <Content Include="Content\Alt\uikit\less\components\slideshow.less" />
+    <Content Include="Content\Alt\uikit\less\components\sortable.less" />
+    <Content Include="Content\Alt\uikit\less\components\sticky.less" />
+    <Content Include="Content\Alt\uikit\less\components\tooltip.less" />
+    <Content Include="Content\Alt\uikit\less\components\upload.less" />
+    <Content Include="Content\Alt\uikit\less\core\alert.less" />
+    <Content Include="Content\Alt\uikit\less\core\animation.less" />
+    <Content Include="Content\Alt\uikit\less\core\article.less" />
+    <Content Include="Content\Alt\uikit\less\core\badge.less" />
+    <Content Include="Content\Alt\uikit\less\core\base.less" />
+    <Content Include="Content\Alt\uikit\less\core\block.less" />
+    <Content Include="Content\Alt\uikit\less\core\breadcrumb.less" />
+    <Content Include="Content\Alt\uikit\less\core\button.less" />
+    <Content Include="Content\Alt\uikit\less\core\close.less" />
+    <Content Include="Content\Alt\uikit\less\core\column.less" />
+    <Content Include="Content\Alt\uikit\less\core\comment.less" />
+    <Content Include="Content\Alt\uikit\less\core\contrast.less" />
+    <Content Include="Content\Alt\uikit\less\core\cover.less" />
+    <Content Include="Content\Alt\uikit\less\core\description-list.less" />
+    <Content Include="Content\Alt\uikit\less\core\dropdown.less" />
+    <Content Include="Content\Alt\uikit\less\core\flex.less" />
+    <Content Include="Content\Alt\uikit\less\core\form.less" />
+    <Content Include="Content\Alt\uikit\less\core\grid.less" />
+    <Content Include="Content\Alt\uikit\less\core\icon.less" />
+    <Content Include="Content\Alt\uikit\less\core\list.less" />
+    <Content Include="Content\Alt\uikit\less\core\modal.less" />
+    <Content Include="Content\Alt\uikit\less\core\nav.less" />
+    <Content Include="Content\Alt\uikit\less\core\navbar.less" />
+    <Content Include="Content\Alt\uikit\less\core\offcanvas.less" />
+    <Content Include="Content\Alt\uikit\less\core\overlay.less" />
+    <Content Include="Content\Alt\uikit\less\core\pagination.less" />
+    <Content Include="Content\Alt\uikit\less\core\panel.less" />
+    <Content Include="Content\Alt\uikit\less\core\print.less" />
+    <Content Include="Content\Alt\uikit\less\core\subnav.less" />
+    <Content Include="Content\Alt\uikit\less\core\switcher.less" />
+    <Content Include="Content\Alt\uikit\less\core\tab.less" />
+    <Content Include="Content\Alt\uikit\less\core\table.less" />
+    <Content Include="Content\Alt\uikit\less\core\text.less" />
+    <Content Include="Content\Alt\uikit\less\core\thumbnail.less" />
+    <Content Include="Content\Alt\uikit\less\core\thumbnav.less" />
+    <Content Include="Content\Alt\uikit\less\core\utility.less" />
+    <Content Include="Content\Alt\uikit\less\core\variables.less" />
+    <Content Include="Content\Alt\uikit\less\uikit-variables.less" />
+    <Content Include="Content\Alt\uikit\less\uikit.less" />
+    <Content Include="Content\Alt\uikit\README.md" />
+    <Content Include="Content\Alt\uikit\scss\components\accordion.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\autocomplete.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\datepicker.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\dotnav.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\form-advanced.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\form-file.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\form-password.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\form-select.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\htmleditor.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\nestable.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\notify.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\placeholder.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\progress.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\search.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\slidenav.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\slider.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\slideshow.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\sortable.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\sticky.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\tooltip.scss" />
+    <Content Include="Content\Alt\uikit\scss\components\upload.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\alert.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\animation.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\article.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\badge.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\base.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\block.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\breadcrumb.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\button.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\close.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\column.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\comment.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\contrast.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\cover.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\description-list.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\dropdown.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\flex.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\form.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\grid.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\icon.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\list.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\modal.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\nav.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\navbar.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\offcanvas.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\overlay.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\pagination.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\panel.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\print.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\subnav.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\switcher.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\tab.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\table.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\text.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\thumbnail.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\thumbnav.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\utility.scss" />
+    <Content Include="Content\Alt\uikit\scss\core\variables.scss" />
+    <Content Include="Content\Alt\uikit\scss\uikit-mixins.scss" />
+    <Content Include="Content\Alt\uikit\scss\uikit-variables.scss" />
+    <Content Include="Content\Alt\uikit\scss\uikit.scss" />
+    <Content Include="Content\icons\material-design-icons\codepoints" />
+    <Content Include="Content\icons\material-design-icons\MaterialIcons-Regular.eot" />
+    <Content Include="Content\icons\material-design-icons\MaterialIcons-Regular.ijmap" />
+    <Content Include="Content\icons\material-design-icons\MaterialIcons-Regular.ttf" />
+    <Content Include="Content\icons\material-design-icons\MaterialIcons-Regular.woff" />
+    <Content Include="Content\icons\material-design-icons\MaterialIcons-Regular.woff2" />
+    <Content Include="Content\icons\material-design-icons\README.md" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="DBScript\SqlScript.sql" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Auth.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Shared\AccessDenied.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Message.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityManagement\IdentityManagement.csproj">
+      <Project>{02ede15a-e67d-4014-9459-cb742192d012}</Project>
+      <Name>IdentityManagement</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59727</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59727/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

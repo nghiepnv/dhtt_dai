@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        #footer {
+            bottom: 0 !important;
+        }
+    </style>
+    @using System.Web.Optimization
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/alt")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @Html.Partial("_Header")
+    <!---->
+    <div id="top_bar">
+        <div class="md-top-bar">
+            <ul id="menu_top" class="uk-clearfix">
+                <li class="uk-hidden-small">
+                    <a href="@Url.Action("Index","Home")"><i class="material-icons">&#xE88A;</i></a>
+                </li>
+                <li data-uk-dropdown class="uk-hidden-small">
+                    <a href="@Url.Action("Index","Spell")"><i class="material-icons">&#xE8D2;</i><span>Soát lỗi</span></a>
+                </li>
+                @*<li data-uk-dropdown class="uk-hidden-small">
+                    <a href="@Url.Action("Index","Guide")"><i class="material-icons">&#xE8D2;</i><span>Hướng dẫn</span></a>
+                </li>*@
+                <li data-uk-dropdown="justify:'#top_bar'" class="uk-visible-small">
+                    <a href="#"><i class="material-icons">&#xE5D2;</i></a>
+                    <div class="uk-dropdown uk-dropdown-width-2">
+                        <div class="uk-grid uk-dropdown-grid" data-uk-grid-margin>
+                            <div class="uk-width-1-1">
+                                <ul class="uk-nav uk-nav-dropdown">
+                                    <li class="uk-nav-header"><a href="@Url.Action("Index","Home")"><i class="material-icons">&#xE88A;</i></a></li>
+                                    <li><a href="@Url.Action("Index","Spell")"><i class="material-icons">&#xE8D2;</i><span>Dịch vụ</span></a></li>
+                                    <li><a href="@Url.Action("Index","Guide")"><i class="material-icons">&#xE8D2;</i><span>Hướng dẫn</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    @RenderBody()
+    <footer id="footer" class="uk-container-center">
+        <div class="md-card md-color-grey-50" style="background-color:#000000">
+            <div class="md-card-content large-padding">
+                <div class="uk-grid uk-grid-divider uk-grid-medium">
+                    <div class="uk-width-large-1-1">
+                        <div class="uk-grid">
+                            <div class="uk-width-large-1-2">
+                                <p> <i class="material-icons md-color-grey-50">&#xE55F;</i>&nbsp;ĐỊA CHỈ:</p>
+                                <p>
+                                    &bull; Hà Nội: Phòng 1805 (Tầng 18), Số 101 Láng Hạ - Đống Đa - Hà Nội.
+                                </p>
+                                <p>
+                                    &bull; Huế: Số 11 Lý Thường Kiệt - Phú Nhuận - TP Huế - Thừa Thiên Huế.
+                                </p>
+                                <p>
+                                    &bull; TP. HCM: Dự án Diagnotech - VIEGRID (phòng 1), Vườn Ươm KHCN- ĐHBK TP. HCM.
+                                </p>
+                            </div>
+                            <div class="uk-width-large-1-4">
+                                <p><i class="material-icons  md-color-grey-50">&#xE0CD;</i>&nbsp;ĐIỆN THOẠI:</p>
+                                <p>&bull; Bộ phận hành chính: (84-24)-3562-6544</p>
+                                <p>&bull; Bộ phận kinh doanh: (84-24)-3562-6680</p>
+                                <p>&bull; Văn phòng Huế: (84-54)-625-2088</p>
+                            </div>
+                            <div class="uk-width-large-1-4">
+                                <p><i class="material-icons  md-color-grey-50">&#xE0BE;</i>&nbsp;EMAIL:</p>
+                                <p>&bull; Kinh doanh: sales@viegrid.com</p>
+                                <p>&bull; Hỗ trợ kỹ thuật: support@viegrid.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-container-center">
+            <center> &copy;&nbsp;@(DateTime.Now.Year - 1 ) - @DateTime.Now.Year &nbsp;<a href="http://viegrid.com">VIEGRID., JSC</a>, All rights reserved.</center>
+        </div>
+    </footer>    
+    <script>
+        $(document).ready(function () {
+           
+        });
+    </script>
+    <script>
+        (function () {
+            $('#footer').css('position', $(document).height() > $(window).height() ? "inherit" : "fixed").css('left', "0").css('right', "0");
+        })();
+        WebFontConfig = {
+            google: {
+                families: [
+                    'Source+Code+Pro:400,700:latin',
+                    'Roboto:400,300,500,700,400italic:latin'
+                ]
+            }
+        };
+        (function () {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+
+    @Scripts.Render("~/bundles/alt")
+    @Html.Partial("_Message")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

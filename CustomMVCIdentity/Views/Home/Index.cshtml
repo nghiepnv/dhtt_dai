@@ -1,0 +1,78 @@
+﻿<link href="~/Content/Alt/templated-industrious/assets/css/main.css" rel="stylesheet" />
+<script src="~/Content/Alt/templated-industrious/assets/js/jquery.min.js"></script>
+<script src="~/Content/Alt/templated-industrious/assets/js/browser.min.js"></script>
+<script src="~/Content/Alt/templated-industrious/assets/js/breakpoints.min.js"></script>
+<script src="~/Content/Alt/templated-industrious/assets/js/util.js"></script>
+<script src="~/Content/Alt/templated-industrious/assets/js/main.js"></script>
+<div class="md-card" style="width:100%!important;">
+    <div>
+        <!-- Banner -->
+        <section id="banner">
+            <div class="inner">
+                <h1>Công cụ Việt</h1>
+                <p>
+                    Bộ sản phẩm sửa lỗi chính tả<br />
+                    Thiết kế bởi <a href="https://viegrid.com/">VIEGRID., JSC</a>
+                </p>
+            </div>
+            <video controls="controls" autoplay loop muted playsinline>
+                <source src="~/Content/Alt/templated-industrious/images/banner.mp4" type="video/mp4" />
+            </video>
+        </section>
+        <!-- Highlights -->
+        <section class="wrapper">
+            <div class="inner">
+                <header class="special">
+                    <h2 style="padding-top:30px;">Chức năng</h2>
+                    <p>Công cụ Việt là một bộ các phần mềm xử lý tiếng Việt được xây dựng trên các phần mềm soạn thảo văn bản đang được sử dụng phổ biến. Công cụ Việt nhằm mục tiêu thống nhất, chuẩn hóa và nâng cao chất lượng tài nguyên số cho các cơ quan nhà nước và doanh nghiệp thông qua việc hỗ trợ cho người dùng trong việc soạn thảo văn bản bằng Tiếng Việt.</p>
+                </header>
+                <hr class="uk-width-4-5 uk-container-center" />
+                <div class="highlights">
+                    <section>
+                        <div class="content">
+                            <header>
+                                <a href="#" class="icon fa-pencil"><span class="label">Icon</span></a>
+                                <h3>Bút Đỏ</h3>
+                            </header>
+                            <p class="uk-text-justify">BÚT ĐỎ là phần mềm trợ giúp cho việc phát hiện và sửa chữa các lỗi về phông chữ, chính tả, ngữ pháp và văn phong cho các văn bản Tiếng Việt.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="content">
+                            <header>
+                                <a href="#" class="icon fa-font-awesome "><span class="label">Icon</span></a>
+                                <h3>CỜ LAU</h3>
+                            </header>
+                            <p class="uk-text-justify">CỜ LAU nằm trong bộ tiện ích Công Cụ Việt Standard Edition là công cụ dùng để chuyển mã trong các văn bản về một mã thống nhất là Unicode.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="content">
+                            <header>
+                                <a href="#" class="icon fa-server"><span class="label">Icon</span></a>
+                                <h3>BÚT ĐỎ SERVER</h3>
+                            </header>
+                            <p class="uk-text-justify">Bút đỏ server cung cấp API sửa lỗi cho các hệ thống khác. Cung cấp giao diện quản lý tài nguyên hệ thống, tài nguyên soát lỗi.</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+
+            var target = this.hash;
+            var $target = $(target);
+
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 900, 'swing', function () {
+                window.location.hash = target;
+            });
+        });
+    });
+</script>

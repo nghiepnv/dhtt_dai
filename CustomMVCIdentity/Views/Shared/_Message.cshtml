@@ -1,0 +1,18 @@
+﻿<script type="text/javascript">
+    $(function () {
+        var success = $.trim("@(Request.Cookies["MessageSuccess"] != null ? Html.Raw(HttpUtility.UrlDecode(Request.Cookies["MessageSuccess"].Value)) : Html.Raw(""))");
+        var error = $.trim("@(Request.Cookies["MessageError"] != null ? Html.Raw(HttpUtility.UrlDecode(Request.Cookies["MessageError"].Value)) : Html.Raw(""))");
+        if (success != "") {
+            UIkit.notify(success, { status: 'success', pos: 'top-center', timeout: 2000 });
+        }
+        if (error != "") {
+             UIkit.notify(error, { status: 'danger', pos: 'top-center', timeout: 2000 });
+        }
+        if (error != "" || success != "") {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("RemoveMessage", "Base")'
+            });
+        }
+    });
+</script>
